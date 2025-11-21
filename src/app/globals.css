@@ -1,0 +1,175 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%; /* #f7f9fc - Very light blue/gray */
+    --foreground: 210 10% 23%; /* #323b43 - Dark cool gray */
+    --card: 0 0% 100%; /* #ffffff - White */
+    --card-foreground: 210 10% 23%; /* #323b43 - Dark cool gray */
+    --popover: 0 0% 100%; /* #ffffff - White */
+    --popover-foreground: 210 10% 23%; /* #323b43 - Dark cool gray */
+    --primary: 180 60% 40%;  /* #29a3a3 - Teal */
+    --primary-foreground: 0 0% 100%; /* #ffffff - White */
+    --secondary: 210 30% 90%; /* Lighter secondary for light theme */
+    --secondary-foreground: 210 10% 30%; /* Darker secondary text */
+    --muted: 210 40% 90%; /* #dde3ea - Light gray */
+    --muted-foreground: 210 8% 45%; /* #6a737d - Slightly darker muted text */
+    --accent: 30 90% 55%;   /* #f78c1e - Orange */
+    --accent-foreground: 0 0% 100%; /* #ffffff - White */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 210 20% 85%; /* #cbd0d9 - Lighter border */
+    --input: 210 30% 94%;  /* #eaf0f5 - Lighter input background */
+    --ring: 180 60% 40%; /* Teal for rings */
+    --radius: 0.5rem;
+
+    --chart-1: 180 70% 45%; /* Teal-ish */
+    --chart-2: 30 80% 60%; /* Orange-ish */
+    --chart-3: 210 30% 50%; /* Blue-gray-ish */
+    --chart-4: 150 50% 50%; /* Green-ish */
+    --chart-5: 270 50% 55%; /* Purple-ish */
+
+    --sidebar-background: 210 30% 96%; /* Light gray for sidebar */
+    --sidebar-foreground: 210 10% 23%;
+    --sidebar-primary: 180 60% 35%; /* Darker Teal for sidebar primary */
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 30% 90%;
+    --sidebar-accent-foreground: 180 60% 35%;
+    --sidebar-border: 210 20% 80%;
+    --sidebar-ring: 180 60% 40%;
+  }
+
+  .dark {
+    --background: 220 15% 15%;  /* #21252b - Dark cool gray-blue */
+    --foreground: 210 40% 95%; /* #f0f3f5 - Very light cool gray */
+    --card: 220 15% 20%; /* #2b3038 - Slightly lighter card */
+    --card-foreground: 210 40% 95%; /* #f0f3f5 */
+    --popover: 220 15% 20%; /* #2b3038 */
+    --popover-foreground: 210 40% 95%;
+    
+    /* Magenta primary for dark theme */
+    --primary: 320 70% 55%;  /* Magenta */
+    --primary-foreground: 0 0% 100%; /* White */
+
+    --secondary: 220 15% 25%; /* Darker secondary for dark theme */
+    --secondary-foreground: 210 30% 80%; /* Lighter secondary text */
+    --muted: 220 15% 25%; /* #353b45 - Darker muted */
+    --muted-foreground: 210 20% 65%; /* #98a1ab - Lighter muted text */
+    --accent: 30 80% 65%;   /* #f9a550 - Lighter Orange */
+    --accent-foreground: 220 15% 10%; /* #1a1d21 - Darker for contrast */
+    --destructive: 0 70% 50%; /* Adjusted destructive for dark */
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 15% 25%; /* #353b45 */
+    --input: 220 15% 25%;  /* #353b45 */
+    --ring: 320 70% 55%; /* Magenta for rings */
+
+    --chart-1: 320 60% 65%; /* Magenta-ish for charts */
+    --chart-2: 30 70% 70%;
+    --chart-3: 210 25% 70%;
+    --chart-4: 150 40% 60%;
+    --chart-5: 270 40% 65%;
+
+    --sidebar-background: 220 15% 12%; /* Even darker for sidebar */
+    --sidebar-foreground: 210 40% 90%;
+    --sidebar-primary: 320 70% 50%; /* Magenta for sidebar primary */
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 15% 22%;
+    --sidebar-accent-foreground: 320 70% 50%; /* Magenta for sidebar accent fg */
+    --sidebar-border: 220 15% 20%;
+    --sidebar-ring: 320 70% 50%; /* Magenta for sidebar ring */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-geist-sans), system-ui, sans-serif;
+  }
+  body.dark { 
+     @apply bg-background text-foreground; 
+  }
+
+  /* Markdown preview styling */
+  .prose {
+    @apply text-foreground;
+  }
+  .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+    @apply text-foreground;
+  }
+  .prose a {
+    @apply text-primary hover:text-primary/80;
+  }
+  .prose blockquote {
+    @apply border-l-primary text-muted-foreground;
+  }
+  .prose code {
+    @apply text-accent bg-muted px-1 py-0.5 rounded-sm text-sm;
+  }
+  .prose pre {
+    @apply bg-muted text-foreground p-4 rounded-md text-sm;
+  }
+  .prose pre code {
+    @apply bg-transparent p-0; /* Reset for code inside pre */
+  }
+  .prose strong {
+    @apply text-foreground;
+  }
+  .prose ul > li::before {
+    @apply bg-foreground;
+  }
+  .prose ol > li::before {
+    @apply text-foreground;
+  }
+
+  .dark .prose {
+     @apply text-foreground;
+  }
+  .dark .prose h1, .dark .prose h2, .dark .prose h3, .dark .prose h4, .dark .prose h5, .dark .prose h6 {
+    @apply text-foreground;
+  }
+  .dark .prose a {
+    @apply text-primary hover:text-primary/80;
+  }
+  .dark .prose blockquote {
+    @apply border-l-primary text-muted-foreground;
+  }
+  .dark .prose code {
+     @apply text-accent bg-muted px-1 py-0.5 rounded-sm;
+  }
+  .dark .prose pre {
+    @apply bg-muted text-foreground p-4 rounded-md;
+  }
+  .dark .prose pre code {
+    @apply bg-transparent p-0;
+  }
+   .dark .prose strong {
+    @apply text-foreground;
+  }
+  .dark .prose ul > li::before {
+    @apply bg-foreground;
+  }
+  .dark .prose ol > li::before {
+    @apply text-foreground;
+  }
+}
+
+/* Custom style for ReadMeMagic text */
+.readme-magic-text {
+  font-weight: bold;
+  color: hsl(var(--foreground)); /* Theme-aware color */
+  -webkit-text-stroke: 1.5px hsl(var(--primary)); /* Theme-aware stroke */
+  text-stroke: 1.5px hsl(var(--primary));
+  paint-order: stroke fill;
+}
+
+.dark .readme-magic-text {
+  color: hsl(var(--foreground)); 
+  -webkit-text-stroke: 1.5px hsl(var(--primary)); 
+  text-stroke: 1.5px hsl(var(--primary));
+}
